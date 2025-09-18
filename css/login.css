@@ -1,0 +1,172 @@
+/* Country Dropdown Styles */
+.country-dropdown-container {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.country-select {
+    appearance: none !important;
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    background: #fff !important;
+    cursor: pointer !important;
+    font-size: 16px !important;
+    padding-right: 50px !important;
+    position: relative !important;
+    z-index: 2 !important;
+    border-radius: 12px !important;
+    border: 2px solid #e6e6e6 !important;
+    padding: 12px 16px !important;
+    transition: all 0.3s ease !important;
+    background-image: linear-gradient(45deg, transparent 49%, #2563eb 50%, transparent 51%) !important;
+    background-size: 0% 2px !important;
+    background-repeat: no-repeat !important;
+    background-position: bottom !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05) !important;
+}
+
+.country-select:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 15px rgba(37, 99, 235, 0.4);
+    outline: none;
+    transform: translateY(-1px);
+    background-size: 100% 2px;
+    background-position: bottom;
+}
+
+.country-select:hover {
+    border-color: #2563eb;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-arrow {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    z-index: 1;
+    color: #2563eb;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.country-select:focus + .dropdown-arrow {
+    color: #3b82f6;
+    transform: translateY(-50%) rotate(180deg);
+}
+
+.country-select option {
+    padding: 12px 16px;
+    font-size: 16px;
+    background: #fff;
+    color: #333;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.country-select option:hover {
+    background: #f8f9fa;
+    color: #D19C97;
+}
+
+.country-select option:checked {
+    background: #D19C97;
+    color: #fff;
+}
+body {
+    
+    background: linear-gradient(135deg, #0f172a 0%, #2563eb 40%, #60a5fa 100%) !important;
+    min-height: 100vh !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    font-family: 'Segoe UI', Arial, sans-serif !important;
+    color: #0f172a;
+}
+
+.login-container {
+    margin-top: 60px;
+    padding: 20px;
+}
+.card {
+    border: none;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    background: #fff;
+    overflow: hidden;
+}
+.card-header {
+    background: linear-gradient(90deg, #2563eb, #3b82f6);
+    color: #fff;
+    border-radius: 20px 20px 0 0;
+    padding: 20px;
+    text-align: center;
+}
+.card-header h4 {
+    margin: 0;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.form-control {
+    border-radius: 10px;
+    border: 2px solid #e6e6e6;
+    padding: 10px 15px;
+    transition: all 0.3s ease;
+}
+.form-control:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 10px rgba(37, 99, 235, 0.3);
+    outline: none;
+}
+.form-label {
+    font-weight: 500;
+    color: #333;
+    position: relative;
+}
+.form-label i {
+    margin-left: 8px;
+    color: #2563eb;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+.form-label i:hover {
+    transform: scale(1.2);
+    color: #b77a7a;
+}
+.btn-custom {
+    background: linear-gradient(90deg, #D19C97, #b77a7a);
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+    font-weight: 600;
+    padding: 12px;
+    transition: all 0.3s ease;
+}
+.btn-custom:hover {
+    background: linear-gradient(90deg, #3b82f6, #2563eb);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(37, 99, 235, 0.4);
+}
+.highlight {
+    color: #2563eb;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+.highlight:hover {
+    color: #3b82f6;
+}
+.animate-pulse-custom {
+    animation: pulse 2s infinite;
+}
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+.card-footer {
+    background: #f8f9fa;
+    border-top: none;
+    padding: 15px;
+    text-align: center;
+}

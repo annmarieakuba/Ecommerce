@@ -1,0 +1,446 @@
+body {
+    
+    background: linear-gradient(135deg, #2b6cb0 0%, #3b82f6 50%, #60a5fa 100%) !important;
+    min-height: 100vh !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    font-family: 'Segoe UI', Arial, sans-serif !important;
+    color: #0f172a;
+}
+
+
+.register-container {
+    /* removed debug border and tightened spacing */
+    margin-top: 60px;
+    padding: 20px;
+}
+.register-container {
+    margin-top: 60px;
+    padding: 20px;
+}
+.card {
+    border: none;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    background: #fff;
+    overflow: hidden;
+}
+.card-header {
+    background: linear-gradient(90deg, #2563eb, #3b82f6);
+    color: #fff;
+    border-radius: 20px 20px 0 0;
+    padding: 20px;
+    text-align: center;
+}
+.card-header h4 {
+    margin: 0;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.form-control, select.form-control {
+    border-radius: 10px;
+    border: 2px solid #e6e6e6;
+    padding: 10px 15px;
+    transition: all 0.3s ease;
+}
+.form-control:focus, select.form-control:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 10px rgba(37, 99, 235, 0.3);
+    outline: none;
+}
+.form-label {
+    font-weight: 500;
+    color: #333;
+    position: relative;
+}
+.form-label i {
+    margin-left: 8px;
+    color: #2563eb;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+.form-label i:hover {
+    transform: scale(1.2);
+    color: #3b82f6;
+}
+.btn-custom {
+    background: linear-gradient(90deg, #2563eb, #3b82f6);
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+    font-weight: 600;
+    padding: 12px;
+    transition: all 0.3s ease;
+}
+.btn-custom:hover {
+    background: linear-gradient(90deg, #3b82f6, #2563eb);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(37, 99, 235, 0.4);
+}
+.highlight {
+    color: #2563eb;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+.highlight:hover {
+    color: #3b82f6;
+}
+.error {
+    color: #dc3545;
+    font-size: 0.85em;
+    margin-top: 5px;
+    display: block;
+}
+.loader {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #2563eb;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: spin 1s linear infinite;
+    margin: 20px auto;
+    display: none;
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+.animate-pulse-custom {
+    animation: pulse 2s infinite;
+}
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+.card-footer {
+    background: #f8f9fa;
+    border-top: none;
+    padding: 15px;
+    text-align: center;
+}
+
+/* Enhanced Country Dropdown Styling */
+.country-dropdown-container {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.country-select {
+    appearance: none !important;
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    background: #fff !important;
+    cursor: pointer !important;
+    font-size: 16px !important;
+    padding-right: 50px !important;
+    position: relative !important;
+    z-index: 2 !important;
+    border-radius: 12px !important;
+    border: 2px solid #e6e6e6 !important;
+    padding: 12px 16px !important;
+    transition: all 0.3s ease !important;
+    background-image: linear-gradient(45deg, transparent 49%, #2563eb 50%, transparent 51%) !important;
+    background-size: 0% 2px !important;
+    background-repeat: no-repeat !important;
+    background-position: bottom !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05) !important;
+}
+
+.country-select:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 15px rgba(37, 99, 235, 0.4);
+    outline: none;
+    transform: translateY(-1px);
+    background-size: 100% 2px;
+    background-position: bottom;
+}
+
+.country-select:hover {
+    border-color: #2563eb;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-arrow {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    z-index: 1;
+    color: #2563eb;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.country-select:focus + .dropdown-arrow {
+    color: #3b82f6;
+    transform: translateY(-50%) rotate(180deg);
+}
+
+.country-select option {
+    padding: 12px 16px;
+    font-size: 16px;
+    background: #fff;
+    color: #333;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.country-select option:hover {
+    background: #f8f9fa;
+    color: #D19C97;
+}
+
+.country-select option:checked {
+    background: #D19C97;
+    color: #fff;
+}
+
+/* Enhanced form label with better icon styling */
+.form-label {
+    font-weight: 600;
+    color: #333;
+    position: relative;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.form-label i {
+    color: #D19C97;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    width: 20px;
+    text-align: center;
+}
+
+.form-label:hover i {
+    transform: scale(1.2);
+    color: #b77a7a;
+}
+
+/* Enhanced form controls with better focus states */
+.form-control, select.form-control {
+    border-radius: 12px !important;
+    border: 2px solid #e6e6e6 !important;
+    padding: 12px 16px !important;
+    transition: all 0.3s ease !important;
+    font-size: 16px !important;
+    background: #fff !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05) !important;
+}
+
+.form-control:focus, select.form-control:focus {
+    border-color: #2563eb !important;
+    box-shadow: 0 0 15px rgba(37, 99, 235, 0.3) !important;
+    outline: none !important;
+    transform: translateY(-1px) !important;
+}
+
+.form-control:hover, select.form-control:hover {
+    border-color: #2563eb;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Enhanced button styling */
+.btn-custom {
+    background: linear-gradient(135deg, #2563eb, #3b82f6) !important;
+    border: none !important;
+    border-radius: 12px !important;
+    color: #fff !important;
+    font-weight: 600 !important;
+    padding: 14px 20px !important;
+    transition: all 0.3s ease !important;
+    font-size: 16px !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+    box-shadow: 0 4px 15px rgba(209, 156, 151, 0.3) !important;
+}
+
+.btn-custom:hover {
+    background: linear-gradient(135deg, #b77a7a, #D19C97);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(209, 156, 151, 0.4);
+}
+
+.btn-custom:active {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+}
+
+/* Enhanced error styling */
+.error {
+    color: #dc3545;
+    font-size: 0.9em;
+    margin-top: 6px;
+    display: block;
+    font-weight: 500;
+    padding-left: 4px;
+}
+
+/* Enhanced card styling */
+.card {
+    border: none !important;
+    border-radius: 25px !important;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15) !important;
+    background: #fff !important;
+    overflow: hidden !important;
+    backdrop-filter: blur(10px) !important;
+}
+
+.card-header {
+    background: linear-gradient(135deg, #D19C97, #b77a7a) !important;
+    color: #fff !important;
+    border-radius: 25px 25px 0 0 !important;
+    padding: 25px !important;
+    text-align: center !important;
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+.card-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(255,255,255,0.1) 0%, transparent 100%);
+    pointer-events: none;
+}
+
+.card-header h4 {
+    margin: 0;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 24px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Enhanced placeholder styling */
+.form-control::placeholder {
+    color: #999;
+    font-style: italic;
+    opacity: 0.8;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus::placeholder {
+    opacity: 0.5;
+    transform: translateY(-2px);
+}
+
+/* Enhanced input field styling with icons */
+.form-control {
+    position: relative;
+    background-image: linear-gradient(45deg, transparent 49%, #D19C97 50%, transparent 51%);
+    background-size: 0% 2px;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    background-size: 100% 2px;
+    background-position: bottom;
+}
+
+/* Enhanced card body styling */
+.card-body {
+    padding: 30px;
+    background: linear-gradient(135deg, #fff 0%, #fafafa 100%);
+}
+
+/* Enhanced form styling */
+form {
+    position: relative;
+}
+
+form::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    right: -20px;
+    bottom: -20px;
+    background: linear-gradient(45deg, rgba(37, 99, 235, 0.05), rgba(59,130,246,0.05));
+    border-radius: 20px;
+    z-index: -1;
+}
+
+/* Enhanced loader styling */
+.loader {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #D19C97;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin: 20px auto;
+    display: none;
+    box-shadow: 0 4px 15px rgba(209, 156, 151, 0.3);
+}
+
+/* Enhanced card footer */
+.card-footer {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-top: 1px solid rgba(37, 99, 235, 0.2);
+    padding: 20px;
+    text-align: center;
+}
+
+.card-footer a {
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.card-footer a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #2563eb;
+    transition: width 0.3s ease;
+}
+
+.card-footer a:hover::after {
+    width: 100%;
+}
+
+.card-footer a:hover {
+    color: #b77a7a;
+    transform: translateY(-1px);
+}
+
+/* Responsive design enhancements */
+@media (max-width: 768px) {
+    .register-container {
+        margin-top: 20px;
+        padding: 10px;
+    }
+    
+    .card-header h4 {
+        font-size: 20px;
+        letter-spacing: 1px;
+    }
+    
+    .form-control, select.form-control {
+        font-size: 16px;
+        padding: 10px 14px;
+    }
+    
+    .btn-custom {
+        padding: 12px 16px;
+        font-size: 14px;
+    }
+}
