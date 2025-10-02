@@ -55,7 +55,7 @@ class Customer extends db_connection
     public function add_customer($full_name, $email, $password, $country, $city, $contact_number, $user_role)
     {
         // check existing email in customer table
-        $stmt = $this->db->prepare("SELECT customer FROM customer WHERE customer_email = ?");
+        $stmt = $this->db->prepare("SELECT * FROM customer WHERE customer_email = ?");
         $stmt->bind_param("s", $email);
         $stmt->execute();
         $res = $stmt->get_result();
