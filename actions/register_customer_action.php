@@ -5,7 +5,7 @@ session_start();
 
 $response = array();
 
-$logFile = __DIR__ . '/../error/php-error.log';
+$logFile = '../test_error/errorlog.txt';
 function append_log($msg) {
     global $logFile;
     $line = '[' . date('Y-m-d H:i:s') . '] ' . $msg . PHP_EOL;
@@ -52,7 +52,7 @@ if (!empty($missing)) {
 
 // Require controller and execute registration inside a try-catch block
 try {
-    $controllerPath = __DIR__ . '/../controllers/customer_controller.php';
+    $controllerPath = '../controllers/customer_controller.php';
     if (!file_exists($controllerPath)) {
         append_log('Controller missing: ' . $controllerPath);
         $response['status'] = 'error';

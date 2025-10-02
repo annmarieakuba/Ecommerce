@@ -101,7 +101,8 @@ $(document).ready(function() {
                 password: password,
                 country: country,
                 city: city,
-                contact_number: contact_number
+                contact_number: contact_number,
+                user_role : 2
             },
             success: function(response) {
                 $('#loader').hide();
