@@ -5,7 +5,7 @@ session_start();
 
 $response = array();
 
-$logFile = '../test_error/errorlog.txt';
+$logFile = '../test_error/errorlog.log';
 function append_log($msg) {
     global $logFile;
     $line = '[' . date('Y-m-d H:i:s') . '] ' . $msg . PHP_EOL;
@@ -91,6 +91,7 @@ try {
     // catch unexpected errors and log them
     append_log('Exception during registration: ' . $t->getMessage() . ' in ' . $t->getFile() . ':' . $t->getLine());
     $response['status'] = 'error';
+    $response['trigger'] = $t->getMessage();
     $response['message'] = 'An internal error occurred';
 }
 
