@@ -44,9 +44,10 @@ class Brand extends db_connection
      * Add a new brand
      * @param string $brand_name
      * @param int $cat_id
+     * @param int $created_by
      * @return mixed
      */
-    public function add_brand($brand_name, $cat_id)
+    public function add_brand($brand_name, $cat_id, $created_by = null)
     {
         // Check if brand name + category combination already exists
         $stmt = $this->db->prepare("SELECT brand_id FROM brands WHERE brand_name = ? AND cat_id = ?");
@@ -58,8 +59,8 @@ class Brand extends db_connection
         }
 
         // Insert new brand
-        $stmt = $this->db->prepare("INSERT INTO brands (brand_name, cat_id) VALUES (?, ?)");
-        $stmt->bind_param("si", $brand_name, $cat_id);
+        $stmt = $this->db->prepare("INSERT INTO brands (brand_name, cat_id, created_by) VALUES (?, ?, ?)");
+        $stmt->bind_param("sii", $brand_name, $cat_id, $created_by);
         if ($stmt->execute()) {
             return $this->db->insert_id;
         }
