@@ -12,7 +12,7 @@ if (isset($_SESSION['customer_id'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Taste of Africa</title>
+    <title>Login - Farm Management System</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11"></link>
@@ -25,7 +25,7 @@ if (isset($_SESSION['customer_id'])) {
         
         body {
             font-family: 'Georgia', serif;
-            background: linear-gradient(135deg, #2c3e50, #34495e, #3498db, #2980b9);
+            background: linear-gradient(135deg, #2d5016, #4a7c59, #6b8e23, #8fbc8f);
             background-attachment: fixed;
             min-height: 100vh;
             display: flex;
@@ -68,13 +68,13 @@ if (isset($_SESSION['customer_id'])) {
             left: -2px;
             right: -2px;
             bottom: -2px;
-            background: linear-gradient(45deg, #3498db, #2980b9, #34495e, #2c3e50);
+            background: linear-gradient(45deg, #2d5016, #4a7c59, #6b8e23, #8fbc8f);
             border-radius: 30px;
             z-index: -1;
         }
         
         .form-header {
-            background: linear-gradient(135deg, #2c3e50, #34495e);
+            background: linear-gradient(135deg, #2d5016, #4a7c59);
             color: white;
             padding: 50px 40px 40px;
             text-align: center;
@@ -165,7 +165,7 @@ if (isset($_SESSION['customer_id'])) {
         
         .btn-login {
             width: 100%;
-            background: linear-gradient(135deg, #3498db, #2980b9);
+            background: linear-gradient(135deg, #4a7c59, #6b8e23);
             color: white;
             border: none;
             padding: 20px;
@@ -201,7 +201,7 @@ if (isset($_SESSION['customer_id'])) {
         
         .btn-login:hover {
             transform: translateY(-3px);
-            box-shadow: 0 15px 35px rgba(52, 152, 219, 0.4);
+            box-shadow: 0 15px 35px rgba(74, 124, 89, 0.4);
         }
         
         .btn-login:active {
@@ -286,8 +286,8 @@ if (isset($_SESSION['customer_id'])) {
 <body>
     <div class="login-container">
         <div class="form-header">
-            <h1>Welcome back!</h1>
-            <p>Sign in to your account</p>
+            <h1><i class="fas fa-seedling"></i> Welcome to Farm!</h1>
+            <p>Sign in to manage your agricultural products</p>
                     </div>
         <div class="form-body">
             <form id="login-form">

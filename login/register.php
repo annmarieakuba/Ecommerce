@@ -12,7 +12,7 @@ if (isset($_SESSION['customer_id'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register - Taste of Africa</title>
+    <title>Register - Farm Management System</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11"></link>
@@ -25,7 +25,7 @@ if (isset($_SESSION['customer_id'])) {
         
         body {
             font-family: 'Arial', sans-serif;
-            background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4);
+            background: linear-gradient(45deg, #2d5016, #4a7c59, #6b8e23, #8fbc8f);
             background-size: 400% 400%;
             animation: gradientShift 8s ease infinite;
             min-height: 100vh;
@@ -61,7 +61,7 @@ if (isset($_SESSION['customer_id'])) {
             left: 0;
             right: 0;
             height: 5px;
-            background: linear-gradient(90deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4);
+            background: linear-gradient(90deg, #2d5016, #4a7c59, #6b8e23, #8fbc8f);
         }
         
         .form-header {
@@ -73,7 +73,7 @@ if (isset($_SESSION['customer_id'])) {
         .form-header h1 {
             font-size: 36px;
             font-weight: 800;
-            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            background: linear-gradient(45deg, #2d5016, #4a7c59);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -142,7 +142,7 @@ if (isset($_SESSION['customer_id'])) {
         
         .btn-register {
             width: 100%;
-            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            background: linear-gradient(45deg, #2d5016, #4a7c59);
             color: white;
             border: none;
             padding: 20px;
@@ -175,7 +175,7 @@ if (isset($_SESSION['customer_id'])) {
         
         .btn-register:hover {
             transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 15px 30px rgba(255, 107, 107, 0.4);
+            box-shadow: 0 15px 30px rgba(45, 80, 22, 0.4);
         }
         
         .btn-register:active {
@@ -260,8 +260,8 @@ if (isset($_SESSION['customer_id'])) {
 <body>
     <div class="register-container">
         <div class="form-header">
-            <h1>Seconds to sign up!</h1>
-            <p>Create your account and get started</p>
+            <h1><i class="fas fa-seedling"></i> Join Our Farm!</h1>
+            <p>Create your account and start managing agricultural products</p>
         </div>
         <div class="form-body">
             <form id="register-form">
@@ -502,7 +502,7 @@ if (isset($_SESSION['customer_id'])) {
                 </div>
                 
                 <input type="hidden" name="user_role" value="2">
-                <button type="submit" class="btn-register">Sign up with Email</button>
+                <button type="submit" class="btn-register">Join Our Farm</button>
                 <div class="loader" id="loader"></div>
             </form>
         </div>

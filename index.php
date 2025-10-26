@@ -18,6 +18,7 @@ session_start();
 			<span class="me-2">Welcome, <?php echo htmlspecialchars($_SESSION['customer_name'] ?? 'User'); ?>!</span>
 			<?php if (isset($_SESSION['user_role']) && (int)$_SESSION['user_role'] === 1): ?>
 				<a href="admin/category.php" class="btn btn-sm btn-outline-primary me-2">Category</a>
+				<a href="admin/brand.php" class="btn btn-sm btn-outline-success me-2">Brand</a>
 			<?php endif; ?>
 			<a href="logout.php" class="btn btn-sm btn-danger">Logout</a>
 		<?php else: ?>
