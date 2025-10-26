@@ -10,7 +10,6 @@ class Brand extends db_connection
     private $brand_id;
     private $brand_name;
     private $cat_id;
-    private $created_by;
 
     public function __construct($brand_id = null)
     {
@@ -44,30 +43,31 @@ class Brand extends db_connection
      * Add a new brand
      * @param string $brand_name
      * @param int $cat_id
-     * @param int $created_by
      * @return mixed
      */
-    public function add_brand($brand_name, $cat_id, $created_by = null)
-    {
-        // Check if brand name + category combination already exists
-        $stmt = $this->db->prepare("SELECT brand_id FROM brands WHERE brand_name = ? AND cat_id = ?");
-        $stmt->bind_param("si", $brand_name, $cat_id);
-        $stmt->execute();
-        $res = $stmt->get_result();
-        if ($res && $res->num_rows > 0) {
-            return 'exists'; // Brand name + category combination already exists
-        }
-
-        // Insert new brand
-        $stmt = $this->db->prepare("INSERT INTO brands (brand_name, cat_id, created_by) VALUES (?, ?, ?)");
-        $stmt->bind_param("sii", $brand_name, $cat_id, $created_by);
-        if ($stmt->execute()) {
-            return $this->db->insert_id;
-        }
-        
-        $err = $this->db->error;
-        return $err ? $err : 'db_error';
+    public function add_brand($brand_name, $cat_id)
+{
+    // Check if brand name + category combination already exists
+    $stmt = $this->db->prepare("SELECT brand_id FROM brands WHERE brand_name = ? AND cat_id = ?");
+    $stmt->bind_param("si", $brand_name, $cat_id);
+    $stmt->execute();
+    $res = $stmt->get_result();
+    if ($res && $res->num_rows > 0) {
+        return 'exists'; // Brand already exists for this category
     }
+
+    // Insert new brand
+    $stmt = $this->db->prepare("INSERT INTO brands (brand_name, cat_id) VALUES (?, ?)");
+    $stmt->bind_param("si", $brand_name, $cat_id);
+    
+    if ($stmt->execute()) {
+        return $this->db->insert_id;
+    }
+
+    $err = $this->db->error;
+    return $err ? $err : 'db_error';
+}
+
 
     /**
      * Update a brand

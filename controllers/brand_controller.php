@@ -10,10 +10,10 @@ require_once __DIR__ . '/../classes/brand_class.php';
 function add_brand_ctr($kwargs)
 {
     $brand = new Brand();
-    $created_by = isset($kwargs['created_by']) ? $kwargs['created_by'] : null;
-    $result = $brand->add_brand($kwargs['brand_name'], $kwargs['cat_id'], $created_by);
+    $result = $brand->add_brand($kwargs['brand_name'], $kwargs['cat_id']);
     return $result;
 }
+
 
 /**
  * Edit/Update a brand

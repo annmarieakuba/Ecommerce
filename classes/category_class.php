@@ -9,7 +9,7 @@ class Category extends db_connection
 {
     private $cat_id;
     private $cat_name;
-    private $created_by;
+    
 
     public function __construct($cat_id = null)
     {

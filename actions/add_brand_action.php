@@ -8,7 +8,6 @@ try {
     // Get POST data
     $brand_name = trim($_POST['brand_name'] ?? '');
     $cat_id = (int)($_POST['cat_id'] ?? 0);
-    $created_by = isset($_SESSION['customer_id']) ? (int)$_SESSION['customer_id'] : null;
     
     // Validate input
     if (empty($brand_name)) {
@@ -30,8 +29,7 @@ try {
     // Prepare data for controller
     $kwargs = [
         'brand_name' => $brand_name,
-        'cat_id' => $cat_id,
-        'created_by' => $created_by
+        'cat_id' => $cat_id
     ];
     
     $result = add_brand_ctr($kwargs);
