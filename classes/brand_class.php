@@ -130,19 +130,24 @@ class Brand extends db_connection
      */
     public function get_brands()
     {
-        $stmt = $this->db->prepare("
-            SELECT b.*, c.cat_name 
-            FROM brands b 
-            LEFT JOIN categories c ON b.cat_id = c.cat_id 
-            ORDER BY c.cat_name ASC, b.brand_name ASC
-        ");
-        $stmt->execute();
-        $result = $stmt->get_result();
-        
-        if ($result && $result->num_rows > 0) {
-            return $result->fetch_all(MYSQLI_ASSOC);
+        try {
+            $stmt = $this->db->prepare("
+                SELECT b.*, c.cat_name 
+                FROM brands b 
+                LEFT JOIN categories c ON b.cat_id = c.cat_id 
+                ORDER BY c.cat_name ASC, b.brand_name ASC
+            ");
+            $stmt->execute();
+            $result = $stmt->get_result();
+            
+            if ($result && $result->num_rows > 0) {
+                return $result->fetch_all(MYSQLI_ASSOC);
+            }
+            return [];
+        } catch (Exception $e) {
+            // If there's an error, return empty array instead of false
+            return [];
         }
-        return false;
     }
 
     /**
@@ -214,5 +219,30 @@ class Brand extends db_connection
             return $result;
         }
         return false;
+    }
+
+    /**
+     * Get brands by user (for admin display)
+     * @return array
+     */
+    public function get_brands_by_user()
+    {
+        try {
+            $stmt = $this->db->prepare("
+                SELECT b.*, c.cat_name 
+                FROM brands b 
+                LEFT JOIN categories c ON b.cat_id = c.cat_id 
+                ORDER BY c.cat_name ASC, b.brand_name ASC
+            ");
+            $stmt->execute();
+            $result = $stmt->get_result();
+            
+            if ($result && $result->num_rows > 0) {
+                return $result->fetch_all(MYSQLI_ASSOC);
+            }
+            return [];
+        } catch (Exception $e) {
+            return [];
+        }
     }
 }

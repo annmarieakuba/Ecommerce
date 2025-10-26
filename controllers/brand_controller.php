@@ -85,3 +85,14 @@ function get_brand_by_name_and_category_ctr($brand_name, $cat_id)
     $result = $brand->get_brand_by_name_and_category($brand_name, $cat_id);
     return $result;
 }
+
+/**
+ * Get brands by user (for admin display)
+ * @return array
+ */
+function get_brands_by_user_ctr()
+{
+    $brand = new Brand();
+    $result = $brand->get_brands_by_user();
+    return $result;
+}

@@ -44,16 +44,16 @@ if (!is_admin()) {
         <div class="row">
             <div class="col-12">
                 <div class="d-flex justify-content-between align-items-center mb-4">
-                    <h2><i class="fas fa-leaf"></i> Crop Categories</h2>
+                    <h2><i class="fas fa-leaf"></i> Categories</h2>
                     <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addCategoryModal">
-                        <i class="fas fa-plus"></i> Add New Crop Category
+                        <i class="fas fa-plus"></i> Add New Category
                     </button>
                 </div>
 
                 <!-- Categories Table -->
                 <div class="card">
                     <div class="card-header">
-                        <h5 class="mb-0"><i class="fas fa-seedling"></i> Crop Categories</h5>
+                        <h5 class="mb-0"><i class="fas fa-seedling"></i> Categories</h5>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
@@ -61,7 +61,7 @@ if (!is_admin()) {
                                 <thead class="table-dark">
                                     <tr>
                                         <th>ID</th>
-                                        <th>Crop Category Name</th>
+                                        <th>Category Name</th>
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
@@ -72,7 +72,7 @@ if (!is_admin()) {
                         </div>
                         <div id="noCategoriesMessage" class="text-center text-muted py-4" style="display: none;">
                             <i class="fas fa-seedling fa-3x mb-3"></i>
-                            <p>No crop categories found. Add your first crop category to get started!</p>
+                            <p>No categories found. Add your first category to get started!</p>
                         </div>
                     </div>
                 </div>
@@ -85,13 +85,13 @@ if (!is_admin()) {
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title"><i class="fas fa-plus"></i> Add New Crop Category</h5>
+                    <h5 class="modal-title"><i class="fas fa-plus"></i> Add New Category</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
                 <form id="addCategoryForm">
                     <div class="modal-body">
                         <div class="mb-3">
-                            <label for="addCatName" class="form-label">Crop Category Name *</label>
+                            <label for="addCatName" class="form-label">Category Name *</label>
                             <input type="text" class="form-control" id="addCatName" name="cat_name" required maxlength="100">
                             <div class="invalid-feedback"></div>
                         </div>
@@ -99,7 +99,7 @@ if (!is_admin()) {
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
                         <button type="submit" class="btn btn-primary">
-                            <i class="fas fa-save"></i> Add Crop Category
+                            <i class="fas fa-save"></i> Add Category
                         </button>
                     </div>
                 </form>
@@ -112,14 +112,14 @@ if (!is_admin()) {
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title"><i class="fas fa-edit"></i> Edit Crop Category</h5>
+                    <h5 class="modal-title"><i class="fas fa-edit"></i> Edit Category</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
                 <form id="editCategoryForm">
                     <div class="modal-body">
                         <input type="hidden" id="editCatId" name="cat_id">
                         <div class="mb-3">
-                            <label for="editCatName" class="form-label">Crop Category Name *</label>
+                            <label for="editCatName" class="form-label">Category Name *</label>
                             <input type="text" class="form-control" id="editCatName" name="cat_name" required maxlength="100">
                             <div class="invalid-feedback"></div>
                         </div>
@@ -127,7 +127,7 @@ if (!is_admin()) {
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
                         <button type="submit" class="btn btn-primary">
-                            <i class="fas fa-save"></i> Update Crop Category
+                            <i class="fas fa-save"></i> Update Category
                         </button>
                     </div>
                 </form>
@@ -144,17 +144,17 @@ if (!is_admin()) {
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
-                    <p>Are you sure you want to delete this crop category?</p>
+                    <p>Are you sure you want to delete this category?</p>
                     <div class="alert alert-warning">
-                        <strong>Warning:</strong> This action cannot be undone. If this crop category is being used by products, the deletion will be prevented.
+                        <strong>Warning:</strong> This action cannot be undone. If this category is being used by products, the deletion will be prevented.
                     </div>
                     <input type="hidden" id="deleteCatId">
-                    <p><strong>Crop Category:</strong> <span id="deleteCatName"></span></p>
+                    <p><strong>Category:</strong> <span id="deleteCatName"></span></p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
                     <button type="button" class="btn btn-danger" id="confirmDeleteBtn">
-                        <i class="fas fa-trash"></i> Delete Crop Category
+                        <i class="fas fa-trash"></i> Delete Category
                     </button>
                 </div>
             </div>
