@@ -55,7 +55,7 @@ class CategoryManager {
 
             const result = await response.json();
             
-            if (result.status === 'success') {
+            if (result.success) {
                 this.displayCategories(result.data);
             } else {
                 this.showAlert('error', result.message);
@@ -118,7 +118,7 @@ class CategoryManager {
 
             const result = await response.json();
             
-            if (result.status === 'success') {
+            if (result.success) {
                 this.showAlert('success', result.message);
                 this.clearAddForm();
                 bootstrap.Modal.getInstance(document.getElementById('addCategoryModal')).hide();
@@ -163,7 +163,7 @@ class CategoryManager {
 
             const result = await response.json();
             
-            if (result.status === 'success') {
+            if (result.success) {
                 this.showAlert('success', result.message);
                 this.clearEditForm();
                 bootstrap.Modal.getInstance(document.getElementById('editCategoryModal')).hide();
@@ -204,7 +204,7 @@ class CategoryManager {
 
             const result = await response.json();
             
-            if (result.status === 'success') {
+            if (result.success) {
                 this.showAlert('success', result.message);
                 bootstrap.Modal.getInstance(document.getElementById('deleteCategoryModal')).hide();
                 this.loadCategories();
