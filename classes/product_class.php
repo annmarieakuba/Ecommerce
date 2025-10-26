@@ -3,7 +3,7 @@
 require_once __DIR__ . '/../settings/db_class.php';
 
 /**
- * Product class for managing agricultural products
+ * AgroCare Farm Product class for managing agricultural products
  */
 class Product extends db_connection
 {

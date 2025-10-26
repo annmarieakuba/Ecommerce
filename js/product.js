@@ -1,4 +1,4 @@
-// Product Management JavaScript
+// AgroCare Farm Product Management JavaScript
 document.addEventListener('DOMContentLoaded', function() {
     // Load products, categories, and brands on page load
     loadProducts();
@@ -260,7 +260,7 @@ function editProduct(productId) {
 
 // Delete product
 function deleteProduct(productId) {
-    if (confirm('Are you sure you want to delete this farm product?')) {
+    if (confirm('Are you sure you want to delete this AgroCare farm product?')) {
         const formData = new FormData();
         formData.append('product_id', productId);
         

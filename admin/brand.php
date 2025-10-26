@@ -18,7 +18,7 @@ if (!is_admin()) {
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Farm Brand Management</title>
+    <title>AgroCare Farm Brand Management</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="../css/brand.css" rel="stylesheet">
@@ -27,7 +27,7 @@ if (!is_admin()) {
     <nav class="navbar navbar-expand-lg navbar-dark bg-success">
         <div class="container">
             <a class="navbar-brand" href="../index.php">
-                <i class="fas fa-seedling"></i> Farm Admin
+                <i class="fas fa-seedling"></i> AgroCare Farm Admin
             </a>
             <div class="navbar-nav ms-auto">
                 <a class="nav-link" href="../index.php">
@@ -47,16 +47,16 @@ if (!is_admin()) {
         <div class="row">
             <div class="col-12">
                 <div class="d-flex justify-content-between align-items-center mb-4">
-                    <h2><i class="fas fa-tags"></i> Farm Brands</h2>
+                    <h2><i class="fas fa-tags"></i> AgroCare Farm Brands</h2>
                     <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addBrandModal">
-                        <i class="fas fa-plus"></i> Add New Farm Brand
+                        <i class="fas fa-plus"></i> Add New AgroCare Farm Brand
                     </button>
                 </div>
 
                 <!-- Brands Table -->
                 <div class="card">
                     <div class="card-header bg-success text-white">
-                        <h5 class="mb-0"><i class="fas fa-tags"></i> Farm Brands by Category</h5>
+                        <h5 class="mb-0"><i class="fas fa-tags"></i> AgroCare Farm Brands by Category</h5>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
@@ -76,7 +76,7 @@ if (!is_admin()) {
                         </div>
                         <div id="noBrandsMessage" class="text-center text-muted py-4" style="display: none;">
                             <i class="fas fa-tags fa-3x mb-3"></i>
-                            <p>No farm brands found. Add your first farm brand to get started!</p>
+                            <p>No AgroCare farm brands found. Add your first farm brand to get started!</p>
                         </div>
                     </div>
                 </div>
@@ -89,7 +89,7 @@ if (!is_admin()) {
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title"><i class="fas fa-plus"></i> Add New Farm Brand</h5>
+                    <h5 class="modal-title"><i class="fas fa-plus"></i> Add New AgroCare Farm Brand</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
                 <form id="addBrandForm">
@@ -111,7 +111,7 @@ if (!is_admin()) {
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
                         <button type="submit" class="btn btn-success">
-                            <i class="fas fa-save"></i> Add Farm Brand
+                            <i class="fas fa-save"></i> Add AgroCare Farm Brand
                         </button>
                     </div>
                 </form>
@@ -124,7 +124,7 @@ if (!is_admin()) {
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title"><i class="fas fa-edit"></i> Edit Farm Brand</h5>
+                    <h5 class="modal-title"><i class="fas fa-edit"></i> Edit AgroCare Farm Brand</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
                 <form id="editBrandForm">
@@ -147,7 +147,7 @@ if (!is_admin()) {
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
                         <button type="submit" class="btn btn-success">
-                            <i class="fas fa-save"></i> Update Farm Brand
+                            <i class="fas fa-save"></i> Update AgroCare Farm Brand
                         </button>
                     </div>
                 </form>
@@ -164,7 +164,7 @@ if (!is_admin()) {
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
-                    <p>Are you sure you want to delete this farm brand?</p>
+                    <p>Are you sure you want to delete this AgroCare farm brand?</p>
                     <div class="alert alert-warning">
                         <strong>Warning:</strong> This action cannot be undone. If this brand is being used by products, the deletion will be prevented.
                     </div>
@@ -175,7 +175,7 @@ if (!is_admin()) {
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
                     <button type="button" class="btn btn-danger" id="confirmDeleteBtn">
-                        <i class="fas fa-trash"></i> Delete Farm Brand
+                        <i class="fas fa-trash"></i> Delete AgroCare Farm Brand
                     </button>
                 </div>
             </div>

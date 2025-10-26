@@ -3,7 +3,7 @@
 require_once __DIR__ . '/../settings/db_class.php';
 
 /**
- * Brand class for managing brands
+ * AgroCare Farm Brand class for managing agricultural brands
  */
 class Brand extends db_connection
 {

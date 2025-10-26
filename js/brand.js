@@ -1,4 +1,4 @@
-// Brand Management JavaScript
+// AgroCare Farm Brand Management JavaScript
 document.addEventListener('DOMContentLoaded', function() {
     // Load brands and categories on page load
     loadBrands();

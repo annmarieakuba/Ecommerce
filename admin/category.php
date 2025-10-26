@@ -18,7 +18,7 @@ if (!is_admin()) {
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Category Management</title>
+    <title>Category Management - AgroCare Farm</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="../css/category.css" rel="stylesheet">
@@ -27,7 +27,7 @@ if (!is_admin()) {
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
             <a class="navbar-brand" href="../index.php">
-                <i class="fas fa-seedling"></i> Agriculture Admin
+                <i class="fas fa-seedling"></i> AgroCare Farm Admin
             </a>
             <div class="navbar-nav ms-auto">
                 <a class="nav-link" href="../index.php">

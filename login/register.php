@@ -12,7 +12,7 @@ if (isset($_SESSION['customer_id'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register - Farm Management System</title>
+    <title>Register - AgroCare Farm Management System</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11"></link>
@@ -260,7 +260,7 @@ if (isset($_SESSION['customer_id'])) {
 <body>
     <div class="register-container">
         <div class="form-header">
-            <h1><i class="fas fa-seedling"></i> Join Our Farm!</h1>
+            <h1><i class="fas fa-seedling"></i> Join AgroCare Farm!</h1>
             <p>Create your account and start managing agricultural products</p>
         </div>
         <div class="form-body">
@@ -502,7 +502,7 @@ if (isset($_SESSION['customer_id'])) {
                 </div>
                 
                 <input type="hidden" name="user_role" value="2">
-                <button type="submit" class="btn-register">Join Our Farm</button>
+                <button type="submit" class="btn-register">Join AgroCare Farm</button>
                 <div class="loader" id="loader"></div>
             </form>
         </div>

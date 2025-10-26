@@ -12,7 +12,7 @@ if (isset($_SESSION['customer_id'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Farm Management System</title>
+    <title>Login - AgroCare Farm Management System</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11"></link>
@@ -286,7 +286,7 @@ if (isset($_SESSION['customer_id'])) {
 <body>
     <div class="login-container">
         <div class="form-header">
-            <h1><i class="fas fa-seedling"></i> Welcome to Farm!</h1>
+            <h1><i class="fas fa-seedling"></i> Welcome to AgroCare Farm!</h1>
             <p>Sign in to manage your agricultural products</p>
                     </div>
         <div class="form-body">

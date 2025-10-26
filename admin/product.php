@@ -18,7 +18,7 @@ if (!is_admin()) {
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Farm Product Management</title>
+    <title>AgroCare Farm Product Management</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="../css/product.css" rel="stylesheet">
@@ -27,7 +27,7 @@ if (!is_admin()) {
     <nav class="navbar navbar-expand-lg navbar-dark bg-success">
         <div class="container">
             <a class="navbar-brand" href="../index.php">
-                <i class="fas fa-seedling"></i> Farm Admin
+                <i class="fas fa-seedling"></i> AgroCare Farm Admin
             </a>
             <div class="navbar-nav ms-auto">
                 <a class="nav-link" href="../index.php">
@@ -50,16 +50,16 @@ if (!is_admin()) {
         <div class="row">
             <div class="col-12">
                 <div class="d-flex justify-content-between align-items-center mb-4">
-                    <h2><i class="fas fa-apple-alt"></i> Farm Products</h2>
+                    <h2><i class="fas fa-apple-alt"></i> AgroCare Farm Products</h2>
                     <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addProductModal">
-                        <i class="fas fa-plus"></i> Add New Farm Product
+                        <i class="fas fa-plus"></i> Add New AgroCare Farm Product
                     </button>
                 </div>
 
                 <!-- Products Table -->
                 <div class="card">
                     <div class="card-header bg-success text-white">
-                        <h5 class="mb-0"><i class="fas fa-apple-alt"></i> Agricultural Products</h5>
+                        <h5 class="mb-0"><i class="fas fa-apple-alt"></i> AgroCare Farm Agricultural Products</h5>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
@@ -82,7 +82,7 @@ if (!is_admin()) {
                         </div>
                         <div id="noProductsMessage" class="text-center text-muted py-4" style="display: none;">
                             <i class="fas fa-apple-alt fa-3x mb-3"></i>
-                            <p>No farm products found. Add your first agricultural product to get started!</p>
+                            <p>No AgroCare farm products found. Add your first agricultural product to get started!</p>
                         </div>
                     </div>
                 </div>
@@ -95,7 +95,7 @@ if (!is_admin()) {
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title"><i class="fas fa-plus"></i> Add New Farm Product</h5>
+                    <h5 class="modal-title"><i class="fas fa-plus"></i> Add New AgroCare Farm Product</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
                 <form id="addProductForm" enctype="multipart/form-data">
@@ -155,7 +155,7 @@ if (!is_admin()) {
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
                         <button type="submit" class="btn btn-success">
-                            <i class="fas fa-save"></i> Add Farm Product
+                            <i class="fas fa-save"></i> Add AgroCare Farm Product
                         </button>
                     </div>
                 </form>
@@ -168,7 +168,7 @@ if (!is_admin()) {
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title"><i class="fas fa-edit"></i> Edit Farm Product</h5>
+                    <h5 class="modal-title"><i class="fas fa-edit"></i> Edit AgroCare Farm Product</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
                 <form id="editProductForm" enctype="multipart/form-data">
@@ -229,7 +229,7 @@ if (!is_admin()) {
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
                         <button type="submit" class="btn btn-success">
-                            <i class="fas fa-save"></i> Update Farm Product
+                            <i class="fas fa-save"></i> Update AgroCare Farm Product
                         </button>
                     </div>
                 </form>
