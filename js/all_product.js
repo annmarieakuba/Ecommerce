@@ -331,18 +331,36 @@ function viewProductDetails(productId) {
     modal.show();
 }
 
-function addToCart(productId) {
-    // This is a placeholder for cart functionality
-    // In a real application, you would implement actual cart functionality
+async function addToCart(productId, quantity = 1) {
     const product = allProducts.find(p => p.product_id == productId);
-    
-    // Show success message
-    showAlert(`"${product.product_title}" has been added to your cart!`, 'success');
-    
-    // Close modal if it's open
-    const modal = bootstrap.Modal.getInstance(document.getElementById('productModal'));
-    if (modal) {
-        modal.hide();
+    const productName = product ? product.product_title : 'Product';
+
+    if (!window.CartAPI) {
+        showAlert('Cart system is not ready. Please refresh the page and try again.', 'danger');
+        return;
+    }
+
+    try {
+        const addBtn = document.getElementById('addToCartBtn');
+        if (addBtn) {
+            addBtn.disabled = true;
+            addBtn.innerHTML = `<span class="spinner-border spinner-border-sm me-2"></span>Adding...`;
+        }
+
+        await CartAPI.addToCart(productId, quantity);
+        showAlert(`"${productName}" has been added to your cart!`, 'success');
+    } catch (error) {
+        showAlert(error.message || 'Unable to add item to cart.', 'danger');
+    } finally {
+        const addBtn = document.getElementById('addToCartBtn');
+        if (addBtn) {
+            addBtn.disabled = false;
+            addBtn.innerHTML = `<i class="fas fa-shopping-cart me-2"></i>Add to Cart`;
+        }
+        const modal = bootstrap.Modal.getInstance(document.getElementById('productModal'));
+        if (modal) {
+            modal.hide();
+        }
     }
 }
 

@@ -1,5 +1,12 @@
 <?php
 session_start();
+
+$scriptName = $_SERVER['SCRIPT_NAME'] ?? '';
+$baseDir = rtrim(str_replace('\\', '/', dirname($scriptName)), '/');
+if (substr($baseDir, -5) === '/view') {
+    $baseDir = substr($baseDir, 0, -5);
+}
+$appBasePath = ($baseDir === '' || $baseDir === '.') ? '/' : $baseDir . '/';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -37,6 +44,12 @@ session_start();
 					</li>
 				</ul>
 				<ul class="navbar-nav">
+					<li class="nav-item">
+						<a class="nav-link" href="view/cart.php">
+							<i class="fas fa-shopping-cart me-1"></i>Cart
+							<span class="badge bg-light text-success ms-1" data-cart-count style="display: none;">0</span>
+						</a>
+					</li>
 					<?php if (isset($_SESSION['customer_id'])): ?>
 						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
@@ -221,6 +234,10 @@ session_start();
 	</footer>
 
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+	<script>
+		window.APP_BASE_PATH = '<?php echo htmlspecialchars($appBasePath, ENT_QUOTES); ?>';
+	</script>
+	<script src="js/cart.js"></script>
 	<script src="js/index.js?v=<?php echo time(); ?>"></script>
 </body>
 </html>
