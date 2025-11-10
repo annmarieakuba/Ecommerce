@@ -56,7 +56,7 @@ class Cart extends db_connection
         $this->db->begin_transaction();
         try {
             $selectGuest = $this->db->prepare("
-                SELECT cart_id, p_id, qty
+                SELECT c_id, p_id, qty
                 FROM cart
                 WHERE c_id IS NULL AND ip_add = ?
             ");
@@ -70,7 +70,7 @@ class Cart extends db_connection
             }
 
             $selectExisting = $this->db->prepare("
-                SELECT cart_id, qty
+                SELECT c_id, qty
                 FROM cart
                 WHERE c_id = ? AND p_id = ?
                 LIMIT 1
@@ -79,7 +79,7 @@ class Cart extends db_connection
             $updateExisting = $this->db->prepare("
                 UPDATE cart
                 SET qty = ?, updated_at = NOW()
-                WHERE cart_id = ?
+                WHERE c_id = ?
             ");
 
             $insertNew = $this->db->prepare("
@@ -97,7 +97,7 @@ class Cart extends db_connection
 
                 if ($existing) {
                     $newQty = $this->normalizeQuantity($existing['qty'] + $quantity);
-                    $updateExisting->bind_param("ii", $newQty, $existing['cart_id']);
+                    $updateExisting->bind_param("ii", $newQty, $existing['c_id']);
                     $updateExisting->execute();
                 } else {
                     $insertNew->bind_param("isii", $productId, $guestIdentifier, $customerId, $quantity);
@@ -105,9 +105,9 @@ class Cart extends db_connection
                 }
             }
 
-            $deleteGuest = $this->db->prepare("DELETE FROM cart WHERE cart_id = ?");
+            $deleteGuest = $this->db->prepare("DELETE FROM cart WHERE c_id = ?");
             foreach ($guestItems as $item) {
-                $cartId = (int)$item['cart_id'];
+                $cartId = (int)$item['c_id'];
                 $deleteGuest->bind_param("i", $cartId);
                 $deleteGuest->execute();
             }
@@ -151,7 +151,7 @@ class Cart extends db_connection
 
         if ($customerId && $customerId > 0) {
             $checkStmt = $this->db->prepare("
-                SELECT cart_id, qty
+                SELECT c_id, qty
                 FROM cart
                 WHERE c_id = ? AND p_id = ?
                 LIMIT 1
@@ -159,7 +159,7 @@ class Cart extends db_connection
             $checkStmt->bind_param("ii", $customerId, $productId);
         } else {
             $checkStmt = $this->db->prepare("
-                SELECT cart_id, qty
+                SELECT c_id, qty
                 FROM cart
                 WHERE c_id IS NULL AND ip_add = ? AND p_id = ?
                 LIMIT 1
@@ -175,11 +175,11 @@ class Cart extends db_connection
             $updateStmt = $this->db->prepare("
                 UPDATE cart
                 SET qty = ?, updated_at = NOW()
-                WHERE cart_id = ?
+                WHERE c_id = ?
             ");
-            $updateStmt->bind_param("ii", $newQty, $existing['cart_id']);
+            $updateStmt->bind_param("ii", $newQty, $existing['c_id']);
             $updateStmt->execute();
-            return $existing['cart_id'];
+            return $existing['c_id'];
         }
 
         if ($customerId && $customerId > 0) {
@@ -218,14 +218,14 @@ class Cart extends db_connection
             $updateStmt = $this->db->prepare("
                 UPDATE cart
                 SET qty = ?, updated_at = NOW()
-                WHERE cart_id = ? AND c_id = ?
+                WHERE c_id = ? AND c_id = ?
             ");
             $updateStmt->bind_param("iii", $qty, $cartId, $customerId);
         } else {
             $updateStmt = $this->db->prepare("
                 UPDATE cart
                 SET qty = ?, updated_at = NOW()
-                WHERE cart_id = ? AND c_id IS NULL AND ip_add = ?
+                WHERE c_id = ? AND c_id IS NULL AND ip_add = ?
             ");
             $updateStmt->bind_param("iis", $qty, $cartId, $guestIdentifier);
         }
@@ -235,10 +235,10 @@ class Cart extends db_connection
         if ($updateStmt->affected_rows === 0) {
             // Item might exist but quantity unchanged; verify ownership
             if ($customerId && $customerId > 0) {
-                $checkStmt = $this->db->prepare("SELECT cart_id FROM cart WHERE cart_id = ? AND c_id = ?");
+                $checkStmt = $this->db->prepare("SELECT c_id FROM cart WHERE c_id = ? AND c_id = ?");
                 $checkStmt->bind_param("ii", $cartId, $customerId);
             } else {
-                $checkStmt = $this->db->prepare("SELECT cart_id FROM cart WHERE cart_id = ? AND c_id IS NULL AND ip_add = ?");
+                $checkStmt = $this->db->prepare("SELECT c_id FROM cart WHERE c_id = ? AND c_id IS NULL AND ip_add = ?");
                 $checkStmt->bind_param("is", $cartId, $guestIdentifier);
             }
 
@@ -267,13 +267,13 @@ class Cart extends db_connection
         if ($customerId && $customerId > 0) {
             $deleteStmt = $this->db->prepare("
                 DELETE FROM cart
-                WHERE cart_id = ? AND c_id = ?
+                WHERE c_id = ? AND c_id = ?
             ");
             $deleteStmt->bind_param("ii", $cartId, $customerId);
         } else {
             $deleteStmt = $this->db->prepare("
                 DELETE FROM cart
-                WHERE cart_id = ? AND c_id IS NULL AND ip_add = ?
+                WHERE c_id = ? AND c_id IS NULL AND ip_add = ?
             ");
             $deleteStmt->bind_param("is", $cartId, $guestIdentifier);
         }
@@ -320,7 +320,7 @@ class Cart extends db_connection
             $this->mergeGuestCart($guestIdentifier, $customerId);
 
             $stmt = $this->db->prepare("
-                SELECT c.cart_id, c.p_id AS product_id, c.qty,
+                SELECT c.c_id, c.p_id AS product_id, c.qty,
                        p.product_title, p.product_price, p.product_image, p.product_desc
                 FROM cart c
                 INNER JOIN products p ON c.p_id = p.product_id
@@ -330,7 +330,7 @@ class Cart extends db_connection
             $stmt->bind_param("i", $customerId);
         } else {
             $stmt = $this->db->prepare("
-                SELECT c.cart_id, c.p_id AS product_id, c.qty,
+                SELECT c.c_id, c.p_id AS product_id, c.qty,
                        p.product_title, p.product_price, p.product_image, p.product_desc
                 FROM cart c
                 INNER JOIN products p ON c.p_id = p.product_id
@@ -405,7 +405,7 @@ class Cart extends db_connection
             $subtotal = round($qty * $price, 2);
 
             return [
-                'cart_id' => (int)$item['cart_id'],
+                'c_id' => (int)$item['c_id'],
                 'product_id' => (int)$item['product_id'],
                 'qty' => $qty,
                 'product_title' => $item['product_title'],
